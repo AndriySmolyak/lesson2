@@ -2,34 +2,88 @@
 
 let money = prompt("Ваш бюджет на місяць?", ""),
     time = prompt("Введіть дату в форматі YYYY MM DD", "");
-
+    var c;
+    var d;
 let appData = {
     butget: money,
-    expenses: {},
+    expenses: {
+        // c ,
+        // d 
+    },
     optionalExspenses: {},
     income: [],
     timeData: time,
     savings: false
 };
 
-let a1 = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
-    a2 = prompt("В скільки обійдеться?", ""),
-    a3 = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
-    a4 = prompt("В скільки обійдеться?", "");
+    // appData.expenses.c = a;
+    // appData.expenses.d = b;
 
    
 
-    // for(let i = 0; i < 2; i ++) {
-    //     a = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
-    //     b = prompt("В скільки обійдеться?", "");
+    for(let i = 0; i < 2; i ++) {
+        let a = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
+            b = prompt("В скільки обійдеться?", "");
 
-    // }
-    appData.expenses = a2;
-    appData.expenses = a4;
+        if((typeof(a)) === "string" && (typeof(a)) != null && (typeof(b)) != null && a != '' && b != '' && a.length < 50){
+            console.log("done");
 
-    alert(appData.butget / 30);
+            appData.expenses[a] = b;
 
-// let arr = ["plumb.png", "orange.jpg", "aplle.bmp"];
+        }
+    
+//         else if((typeof(a))!= "string" || (typeof(a)) === null || (typeof(b)) === null || a === '' || b === '' || a.length < 50){     
+//             for(let m = 0; m <  i; m ++) {
+//                 let a = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
+//                     b = prompt("В скільки обійдеться?", "");
+//     }
+// }
+}
 
-// let answer = prompt ("вам є 18?", "");
-// console.log((typeof(arr)));
+//Ще 2 способи циклів
+
+                      //----1------
+// let i = 0;
+//     while(i < 3){
+//             let a = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
+//                 b = prompt("В скільки обійдеться?", "");
+        
+//         if((typeof(a)) === "string" && (typeof(a)) != null && (typeof(b)) != null && a != '' && b != '' && a.length < 50){
+//             console.log("done");
+//             appData.expenses[a] = b;
+            
+//         }
+//         i++;
+//     }
+                    //------2
+    // let i = 0;
+
+    // do {
+    //     let a = prompt("Введіть обовязкову статтю розходів в цьому місяці", ""),
+    //         b = prompt("В скільки обійдеться?", "");
+                
+    //             if((typeof(a)) === "string" && (typeof(a)) != null && (typeof(b)) != null && a != '' && b != '' && a.length < 50){
+    //                 console.log("done");
+    //                 appData.expenses[a] = b; 
+                
+    //             }
+    //             i++;
+    //         } while (i<2); 
+
+
+
+  appData.moneyPerDay = appData.butget / 30;
+    alert("Щоденний бюджет складає: " + appData.moneyPerDay);
+
+        if(appData.moneyPerDay < 100){
+            console.log('Минимальний рівень достатку');
+        } else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
+            console.log('Середній рівень достатку');
+        } else if(appData.moneyPerDay > 2000){
+            console.log('Високий рівень достатку');
+        } else {
+            console.log('Виниклакла помилка');
+        }
+
+    // alert("Обовязкова стаття розходів в цьому місяці " + appData.expenses.c + "\n" + "Обійшлось : " + appData.expenses.d);
+
